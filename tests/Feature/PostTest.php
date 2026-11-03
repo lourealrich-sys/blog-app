@@ -7,6 +7,15 @@ test('guests are redirected to login when visiting posts', function () {
     $this->get(route('posts.index'))->assertRedirect(route('login'));
 });
 
+test('an authenticated user can download the post report as a pdf', function () {
+    $user = User::factory()->create();
+
+    $this->actingAs($user)
+        ->get(route('posts.reports.pdf'))
+        ->assertOk()
+        ->assertDownload('lastname_blog_report.pdf');
+});
+
 test('an authenticated user can create update view and delete a post', function () {
     $user = User::factory()->create();
 

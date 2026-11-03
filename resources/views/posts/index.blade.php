@@ -1,10 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between gap-4">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ __('My Posts') }}</h2>
-            <a href="{{ route('posts.create') }}" class="inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700">
-                {{ __('New post +') }}
-            </a>
+            <div class="flex items-center gap-3">
+                <a href="{{ route('posts.reports.index') }}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-100">
+                    {{ __('Reports') }}
+                </a>
+                <a href="{{ route('posts.create') }}" class="inline-flex items-center px-4 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700">
+                    {{ __('New post +') }}
+                </a>
+            </div>
         </div>
     </x-slot>
 
